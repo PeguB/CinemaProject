@@ -12,8 +12,6 @@ import org.fis.cinemaregistrationapplication.services.UserLoginService;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
-    @FXML
     private Text registrationMessage;
     @FXML
     private PasswordField passwordField;
@@ -25,6 +23,7 @@ public class HelloController {
     @FXML
     public void initialize() {
         role.getItems().addAll("Client", "Admin");
+        role.setValue("Client");
     }
 
     @FXML
@@ -36,6 +35,9 @@ public class HelloController {
             else {
                 registrationMessage.setText("Account created succesfully");
                 UserLoginService.addUserToDatabase(U);
+                usernameField.setText("");
+                passwordField.setText("");
+                role.setValue(null);
             }
         }catch (UsernameAlreadyExistsException e){
             registrationMessage.setText("Username " + U.getUsername() + " already exists");
