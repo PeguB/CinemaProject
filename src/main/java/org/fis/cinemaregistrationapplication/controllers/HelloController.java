@@ -28,11 +28,11 @@ public class HelloController {
     }
 
     @FXML
-    protected void onHelloButtonClick() {
+    protected void onRegisterClick() {
         User U = new User(usernameField.getText(), passwordField.getText(), role.getValue().toString());
         try {
-            if(U.getPassword() == "")
-                registrationMessage.setText("Password field is empty");
+            if(passwordField.getText() == "" || usernameField.getText() == "")
+                registrationMessage.setText("Credentials can not be empty");
             else {
                 registrationMessage.setText("Account created succesfully");
                 UserLoginService.addUserToDatabase(U);
