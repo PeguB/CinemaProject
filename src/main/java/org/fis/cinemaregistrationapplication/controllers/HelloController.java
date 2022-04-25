@@ -12,8 +12,6 @@ import org.fis.cinemaregistrationapplication.services.UserLoginService;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
-    @FXML
     private Text registrationMessage;
     @FXML
     private PasswordField passwordField;
@@ -25,6 +23,7 @@ public class HelloController {
     @FXML
     public void initialize() {
         role.getItems().addAll("Client", "Admin");
+        role.setValue("Client");
     }
 
     @FXML
@@ -32,15 +31,28 @@ public class HelloController {
         User U = new User(usernameField.getText(), passwordField.getText(), role.getValue().toString());
         try {
             if(passwordField.getText() == "" || usernameField.getText() == "")
-                registrationMessage.setText("Credentials can not be empty");
+                registrationMessage.setText("Credentials can not be empty!");
             else {
-                registrationMessage.setText("Account created succesfully");
+                registrationMessage.setText("Account created succesfully, try to login now : )");
                 UserLoginService.addUserToDatabase(U);
+                usernameField.setText("");
+                passwordField.setText("");
+                role.setValue(null);
             }
         }catch (UsernameAlreadyExistsException e){
-            registrationMessage.setText("Username " + U.getUsername() + " already exists");
+            registrationMessage.setText("Username " + U.getUsername() + " already exists!");
         }catch (Exception e){
             registrationMessage.setText(e.toString());
+        }
+    }
+
+    @FXML
+    protected void onLoginClick(){
+        if(UserLoginService.checkCredIfExists(usernameField.getText(), passwordField.getText(), role.getValue().toString())){
+            UserLoginService.setLoggedIn(usernameField.getText(), role.getValue().toString());
+            registrationMessage.setText("You are now logged in as " + usernameField.getText());
+        }else{
+            registrationMessage.setText("Your credentials are invalid");
         }
     }
 }
