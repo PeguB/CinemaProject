@@ -6,9 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.fis.cinemaregistrationapplication.Main;
 import org.fis.cinemaregistrationapplication.exceptions.UsernameAlreadyExistsException;
 import org.fis.cinemaregistrationapplication.models.User;
+import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
 import org.fis.cinemaregistrationapplication.services.UserLoginService;
+
+import java.io.IOException;
 
 public class HelloController {
     @FXML
@@ -47,10 +51,16 @@ public class HelloController {
     }
 
     @FXML
-    protected void onLoginClick(){
+    protected void onLoginClick() throws IOException {
         if(UserLoginService.checkCredIfExists(usernameField.getText(), passwordField.getText(), role.getValue().toString())){
+
             UserLoginService.setLoggedIn(usernameField.getText(), role.getValue().toString());
-            registrationMessage.setText("You are now logged in as " + usernameField.getText());
+            if(role.getValue().toString().equals("Admin")){
+                SceneSwitcher.switchScene("homePageManager.fxml");
+            }else{
+                SceneSwitcher.switchScene("homePageClient.fxml");
+            }
+
         }else{
             registrationMessage.setText("Your credentials are invalid");
         }
