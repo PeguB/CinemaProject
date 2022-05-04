@@ -5,9 +5,5 @@ import javafx.scene.control.Button;
 
 public class ManagerController {
 
-    @FXML
-    private Button reservationDetailsButton;
-
-
 
 }

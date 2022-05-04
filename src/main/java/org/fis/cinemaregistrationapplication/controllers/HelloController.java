@@ -57,6 +57,7 @@ public class HelloController {
             UserLoginService.setLoggedIn(usernameField.getText(), role.getValue().toString());
             if(role.getValue().toString().equals("Admin")){
                 SceneSwitcher.switchScene("homePageManager.fxml");
+
             }else{
                 SceneSwitcher.switchScene("homePageClient.fxml");
             }
