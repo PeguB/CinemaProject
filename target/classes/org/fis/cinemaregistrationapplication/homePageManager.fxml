@@ -28,7 +28,7 @@
             <Font name="Arial" size="17.0" />
          </font>
       </Text>
-      <Button alignment="CENTER" layoutX="315.0" layoutY="245.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="108.0" style="-fx-background-color: #F6B052;" text="add" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button alignment="CENTER" layoutX="315.0" layoutY="245.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="21.0" prefWidth="108.0" style="-fx-background-color: #F6B052;" text="add" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
