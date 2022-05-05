@@ -4,14 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="512.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="org.fis.cinemaregistrationapplication.controllers.ManagerAddReservationPage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="512.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.ManagerAddReservationPage">
    <children>
        <Label layoutX="12.0" layoutY="54.0" prefHeight="36.0" prefWidth="54.0" text="Movie">
            <font>
                <Font size="16.0" />
            </font>
        </Label>
-       <ChoiceBox fx:id="movieName" layoutX="121.0" layoutY="61.0" prefWidth="150.0" />
        <Label layoutX="18.0" layoutY="100.0" prefHeight="26.0" prefWidth="38.0" text="Date">
            <font>
                <Font size="16.0" />
@@ -22,13 +21,14 @@
                <Font size="16.0" />
            </font>
        </Label>
-       <ChoiceBox fx:id="date" layoutX="121.0" layoutY="101.0" prefWidth="150.0" />
-       <ChoiceBox fx:id="seats" layoutX="121.0" layoutY="139.0" prefWidth="150.0" />
+       <ChoiceBox fx:id="seats" layoutX="121.0" layoutY="138.0" prefWidth="150.0" />
        <TextField layoutX="61.0" layoutY="223.0" prefHeight="26.0" prefWidth="266.0" />
        <Label layoutX="101.0" layoutY="14.0" prefHeight="18.0" prefWidth="261.0" text="Admin Add Reservation Page" textFill="#e8ef23">
            <font>
                <Font size="18.0" />
            </font>
        </Label>
+      <ComboBox fx:id="date" layoutX="119.0" layoutY="100.0" prefWidth="150.0" />
+      <ComboBox fx:id="movieName" layoutX="121.0" layoutY="59.0" onAction="#setHoursBaseByMovieName" prefWidth="150.0" />
    </children>
 </AnchorPane>
