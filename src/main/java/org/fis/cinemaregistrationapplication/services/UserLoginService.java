@@ -15,6 +15,8 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserLoginService {
@@ -89,5 +91,22 @@ public class UserLoginService {
     public static void setLoggedIn(String username, String role){
         LoggedIn.setUsername(username);
         LoggedIn.setRole(role);
+    }
+
+    public List<String> getUsersFromDatabase(){
+        List<String> list = new ArrayList<>();
+        try{
+            String query  = "SELECT * FROM users WHERE ROLE ='Client';";
+            Statement statement = DBConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            while(result.next()){
+                list.add(result.getString("username"));
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+
+        return list;
     }
 }
