@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservationService {
 
@@ -37,5 +39,35 @@ public class ReservationService {
             ResultSet result = statement.executeQuery();
           return result.next();
 
+    }
+    public boolean availableSeatByNumberOfSeats(String name, String hour, String day) throws SQLException {
+        String query = "SELECT Count(seat_reserved) as 'number_seats', movie_name, day, date FROM reservation WHERE movie_name = ? AND date = ? AND day = ? GROUP BY movie_name,day,date ";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        statement.setString(1,name);
+        statement.setString(2,hour);
+        statement.setString(3,day);
+        ResultSet result = statement.executeQuery();
+        while(result.next()){
+            String number_seats = result.getString("number_seats");
+            if(Integer.parseInt(number_seats) == 15){
+                return false;
+            }
+        }
+        return true;
+
+    }
+    public List<String> getReservationsWhitStatusUnknow(){
+        String query = "SELECT * FROM accounts.reservation where comfirmed = 'Unknown'";
+        List<String> list_reservations = new ArrayList<>();
+        try {
+            Statement statement = DBConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            while(result.next()){
+                list_reservations.add(result.getString("id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list_reservations;
     }
 }

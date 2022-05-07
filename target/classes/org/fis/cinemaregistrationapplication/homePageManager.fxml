@@ -8,9 +8,9 @@
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0000244140625" minWidth="10.0" prefWidth="106.0000244140625" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.599951171875" minWidth="10.0" prefWidth="106.799951171875" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.599951171875" minWidth="10.0" prefWidth="46.800012207031216" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.79998779296875" minWidth="10.0" prefWidth="132.79998779296875" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.599951171875" minWidth="10.0" prefWidth="104.20000000000002" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.599951171875" minWidth="10.0" prefWidth="89.19999999999999" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.79998779296875" minWidth="10.0" prefWidth="106.80000000000001" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
@@ -28,10 +28,14 @@
             <Font name="Arial" size="17.0" />
          </font>
       </Text>
-      <Button alignment="CENTER" layoutX="315.0" layoutY="245.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="21.0" prefWidth="108.0" style="-fx-background-color: #F6B052;" text="add" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button alignment="CENTER" layoutX="315.0" layoutY="245.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="27.0" prefWidth="93.0" style="-fx-background-color: #F6B052;" text="add" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <Button fx:id="confirmButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickOnConfirm" style="-fx-background-color: #F6B052;" text="confirm" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
    </children>
 </GridPane>

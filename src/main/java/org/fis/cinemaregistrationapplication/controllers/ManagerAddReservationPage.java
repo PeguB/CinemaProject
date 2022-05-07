@@ -35,58 +35,71 @@ public class ManagerAddReservationPage {
 
     @FXML
     public void initialize() {
-            movieName.getItems().addAll(moviesService.getMoviesName());
-            String predefineMovieNameValue = moviesService.getMoviesName().stream().iterator().next();
-            movieName.setValue(predefineMovieNameValue);
-            date.setValue(moviesService.getStartDateByMovieName(movieName.getValue().toString()).get(0));
-            date.getItems().addAll(moviesService.getStartDateByMovieName(movieName.getValue().toString()));
-            username_user.getItems().addAll(userLoginService.getUsersFromDatabase());
-            day.getItems().addAll(DaysGenerator.getDays());
-            System.out.println(moviesService.getMoviesName());
+        movieName.getItems().addAll(moviesService.getMoviesName());
+        String predefineMovieNameValue = moviesService.getMoviesName().stream().iterator().next();
+        movieName.setValue(predefineMovieNameValue);
+        date.setValue(moviesService.getStartDateByMovieName(movieName.getValue().toString()).get(0));
+        date.getItems().addAll(moviesService.getStartDateByMovieName(movieName.getValue().toString()));
+        username_user.getItems().addAll(userLoginService.getUsersFromDatabase());
+        day.getItems().addAll(DaysGenerator.getDays());
+        System.out.println(moviesService.getMoviesName());
 
     }
 
     @FXML
-    public void setHoursBaseByMovieName(){
-        if(movieName.getValue().toString() != null){
+    public void setHoursBaseByMovieName() {
+        if (movieName.getValue().toString() != null) {
             date.getItems().clear();
             date.getItems().addAll(moviesService.getStartDateByMovieName(movieName.getValue().toString()));
         }
-        movieName.setOnAction(event->{
+        movieName.setOnAction(event -> {
             date.getItems().clear();
             date.getItems().addAll(moviesService.getStartDateByMovieName(movieName.getValue().toString()));
 
         });
     }
+
     @FXML
-    public void onSubmitButton()  {
-        if(date.getValue().toString() != null && movieName.getValue().toString() != null && seat.getText().isEmpty() == false){
-            Reservation reservation = new Reservation();
-            reservation.setUsername_user(username_user.getValue().toString());
-            reservation.setDate(date.getValue().toString());
-            reservation.setMovieName(movieName.getValue().toString());
-            reservation.setConfirmed("Confirmed");
-            reservation.setDay(day.getValue().toString());
-            reservation.setSeat(Integer.valueOf(seat.getText()));
-            System.out.println(reservation);
-
-
+    public void onSubmitButton() {
+        if (date.getValue().toString() != null && movieName.getValue().toString() != null && seat.getText().isEmpty() == false
+                && CheckNumber.isNumeric(seat.getText()) && Integer.parseInt(seat.getText()) < 15) {
             try {
-                if(reservationService.seatOcupated(reservation.getMovieName(),reservation.getDate(),reservation.getSeat(),reservation.getDay())){
+                if (reservationService.availableSeatByNumberOfSeats(movieName.getValue().toString(), date.getValue().toString(), day.getValue().toString()))
+                {
+                    Reservation reservation = new Reservation();
+                    reservation.setUsername_user(username_user.getValue().toString());
+                    reservation.setDate(date.getValue().toString());
+                    reservation.setMovieName(movieName.getValue().toString());
+                    reservation.setConfirmed("Confirmed");
+                    reservation.setDay(day.getValue().toString());
+                    reservation.setSeat(Integer.valueOf(seat.getText()));
+                    System.out.println(reservation);
 
-                    message.setText("Seat Unavailable");
 
-                }else{
-                    reservationService.addReservationToDatabase(reservation);
-                    message.setText("Registration done");
+                    try {
+                        if (reservationService.seatOcupated(reservation.getMovieName(), reservation.getDate(), reservation.getSeat(), reservation.getDay())) {
+
+                            message.setText("Seat Unavailable");
+
+                        } else {
+                            reservationService.addReservationToDatabase(reservation);
+                            message.setText("Registration done");
+                        }
+                    } catch (SQLException e) {
+                        System.out.println(e);
+                    }
+
+                } else {
+                    System.out.println(message.getText());
+                    message.setText("The room is full try another date or movie");
                 }
             } catch (SQLException e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
 
-        }else{
+        }else {
             System.out.println(message.getText());
-            message.setText("Must complete all fields");
+            message.setText("Invalid fields");
         }
 
     }

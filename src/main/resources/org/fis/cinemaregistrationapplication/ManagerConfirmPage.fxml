@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="463.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1 " fx:controller="org.fis.cinemaregistrationapplication.controllers.ManagerConfirmedController">
+   <children>
+      <Label layoutX="83.0" layoutY="8.0" prefHeight="35.0" prefWidth="239.0" text="Confirm Reservation Page" textFill="#e8ef23">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="id" layoutX="128.0" layoutY="43.0" prefWidth="150.0" />
+      <Label layoutX="5.0" layoutY="47.0" prefHeight="18.0" prefWidth="120.0" text="ID_Reservation">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
