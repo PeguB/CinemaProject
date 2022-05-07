@@ -9,8 +9,28 @@ public class Reservation {
     private String movieName;
     private String date;
     private String confirmed;
+    private String day;
+    private Integer seat;
 
-    public Reservation(){}
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public Integer getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Integer seat) {
+        this.seat = seat;
+    }
+
+    public Reservation() {
+    }
+
     public Reservation(String username_user, String movieName, String date) {
         this.username_user = username_user;
         this.movieName = movieName;
@@ -85,6 +105,8 @@ public class Reservation {
                 ", movieName='" + movieName + '\'' +
                 ", date='" + date + '\'' +
                 ", confirmed='" + confirmed + '\'' +
+                ", day='" + day + '\'' +
+                ", seat=" + seat +
                 '}';
     }
 }
