@@ -10,6 +10,7 @@ import org.fis.cinemaregistrationapplication.Main;
 import org.fis.cinemaregistrationapplication.exceptions.UsernameAlreadyExistsException;
 import org.fis.cinemaregistrationapplication.models.User;
 import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
+import org.fis.cinemaregistrationapplication.services.SingletonUsername;
 import org.fis.cinemaregistrationapplication.services.UserLoginService;
 
 import java.io.IOException;
@@ -57,7 +58,7 @@ public class HelloController {
             UserLoginService.setLoggedIn(usernameField.getText(), role.getValue().toString());
             if(role.getValue().toString().equals("Admin")){
                 SceneSwitcher.switchScene("homePageManager.fxml");
-
+                SingletonUsername.setUSSERNAME(usernameField.getText());
             }else{
                 SceneSwitcher.switchScene("homePageClient.fxml");
             }

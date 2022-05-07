@@ -10,6 +10,7 @@ public class Reservation {
     private String date;
     private String confirmed;
 
+    public Reservation(){}
     public Reservation(String username_user, String movieName, String date) {
         this.username_user = username_user;
         this.movieName = movieName;
@@ -74,5 +75,16 @@ public class Reservation {
 
     public void setConfirmed(String confirmed) {
         this.confirmed = confirmed;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", username_user='" + username_user + '\'' +
+                ", movieName='" + movieName + '\'' +
+                ", date='" + date + '\'' +
+                ", confirmed='" + confirmed + '\'' +
+                '}';
     }
 }

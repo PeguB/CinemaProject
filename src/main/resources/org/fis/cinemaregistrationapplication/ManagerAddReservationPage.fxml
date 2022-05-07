@@ -16,13 +16,12 @@
                <Font size="16.0" />
            </font>
        </Label>
-       <Label layoutX="23.0" layoutY="139.0" text="Seats">
-           <font>
-               <Font size="16.0" />
-           </font>
+       <Label layoutX="16.0" layoutY="137.0" prefHeight="27.0" prefWidth="170.0" text="Enter seats number: ">
+         <font>
+            <Font size="18.0" />
+         </font>
        </Label>
-       <ChoiceBox fx:id="seats" layoutX="121.0" layoutY="138.0" prefWidth="150.0" />
-       <TextField layoutX="61.0" layoutY="223.0" prefHeight="26.0" prefWidth="266.0" />
+       <TextField fx:id="message" layoutX="61.0" layoutY="223.0" prefHeight="26.0" prefWidth="266.0" />
        <Label layoutX="101.0" layoutY="14.0" prefHeight="18.0" prefWidth="261.0" text="Admin Add Reservation Page" textFill="#e8ef23">
            <font>
                <Font size="18.0" />
@@ -30,5 +29,12 @@
        </Label>
       <ComboBox fx:id="date" layoutX="119.0" layoutY="100.0" prefWidth="150.0" />
       <ComboBox fx:id="movieName" layoutX="121.0" layoutY="59.0" onAction="#setHoursBaseByMovieName" prefWidth="150.0" />
+      <TextField fx:id="seats" layoutX="181.0" layoutY="138.0" />
+      <Button fx:id="submitButton" layoutX="306.0" layoutY="176.0" mnemonicParsing="false" onAction="#onSubmitButton" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #F6B052;" text="Submit" />
+      <ComboBox fx:id="username_user" layoutX="345.0" layoutY="59.0" prefWidth="150.0" />
+      <Label layoutX="292.0" layoutY="63.0" prefHeight="18.0" prefWidth="38.0" text="User">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>

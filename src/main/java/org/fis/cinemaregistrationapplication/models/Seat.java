@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Seat {
     private Integer number;
     private String reserved;
+    private String start_date;
 
-    public Seat(Integer number, String reserved) {
+    public Seat(Integer number, String reserved,String start_date) {
         this.number = number;
         this.reserved = reserved;
+        this.start_date = start_date;
     }
 
     public Integer getNumber() {
@@ -39,4 +41,13 @@ public class Seat {
     public int hashCode() {
         return Objects.hash(number);
     }
+
+    public String getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
+    }
+
 }
