@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ReservationService {
 
@@ -69,5 +70,17 @@ public class ReservationService {
             e.printStackTrace();
         }
         return list_reservations;
+    }
+    public void updateReservationStatus(Integer Id, String staus){
+        String query = "Update reservation Set comfirmed = ? WHERE id = ?";
+        try {
+            PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+            statement.setString(1,staus);
+            statement.setString(2,Id.toString());
+            int result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }
