@@ -16,4 +16,8 @@ public class OnMovieController {
     public void initialize(Movie film) {
         movie.setText(film.getName());
     }
+
+    public void onButtonAction(){
+
+    }
 }

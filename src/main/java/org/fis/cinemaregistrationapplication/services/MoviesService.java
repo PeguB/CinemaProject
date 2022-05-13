@@ -7,6 +7,7 @@ import java.util.*;
 
 public class MoviesService {
 
+    public static String ActualMovieName;
 
     public Set<String> getMoviesName(){
 
@@ -53,5 +54,18 @@ public class MoviesService {
         ResultSet movies = statement.executeQuery();
 
         return movies;
+    }
+
+    public static ResultSet getMovieImage(String MovieName) throws SQLException{
+        String query = "SELECT * FROM moviephoto WHERE name = ?";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        statement.setString(1, MovieName);
+
+        ResultSet movie = statement.executeQuery();
+        return movie;
+    }
+
+    public static void setActualName(String name){
+        ActualMovieName = name;
     }
 }
