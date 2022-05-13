@@ -10,6 +10,8 @@ public class SceneSwitcher {
         try{
             Main m = new Main();
             m.switchScene(fxml);
-        }catch (IOException e){}
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
