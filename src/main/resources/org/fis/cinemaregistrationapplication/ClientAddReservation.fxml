@@ -17,7 +17,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="384.0" layoutY="17.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Check!" textFill="#594040">
+            <Button layoutX="384.0" layoutY="17.0" mnemonicParsing="false" onAction="#onCheckAction" prefHeight="26.0" prefWidth="80.0" text="Check!" textFill="#594040">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="12.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Image url="@M2JkMWJmMTBjZWYwZmE4ZjlhZTRjODEzMzgwMTIxODU=.thumb.jpg" />
                </image>
             </ImageView>
-            <Text fill="#d9d2c8" layoutX="206.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <Text fx:id="AvailableCheck" layoutX="201.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="202.013671875">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>

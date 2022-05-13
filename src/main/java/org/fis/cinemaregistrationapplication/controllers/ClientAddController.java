@@ -2,6 +2,8 @@ package org.fis.cinemaregistrationapplication.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import org.fis.cinemaregistrationapplication.services.DaysGenerator;
 import org.fis.cinemaregistrationapplication.services.MoviesService;
 import org.fis.cinemaregistrationapplication.services.ReservationService;
@@ -29,6 +31,9 @@ public class ClientAddController {
     private ComboBox hour;
 
     @FXML
+    private Text AvailableCheck;
+
+    @FXML
     public void initialize(){
 
         ArrayList<Integer> Seats = new ArrayList<Integer>();
@@ -47,7 +52,18 @@ public class ClientAddController {
 
     }
 
-    protected void onCheckAction(){
-
+    @FXML
+    public void onCheckAction(){
+        try {
+            if(reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), (Integer) seat.getValue(), day.getValue().toString())) {
+                AvailableCheck.setFill(Color.RED);
+                AvailableCheck.setText("Seat Unavailable");
+            } else{
+                AvailableCheck.setFill(Color.GREEN);
+                AvailableCheck.setText("Seat Available");
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
