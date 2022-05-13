@@ -34,6 +34,11 @@ public class ClientReservationInfoController {
     }
 
     @FXML
+    protected void onLogOutAction(){
+        SceneSwitcher.switchScene("loginscreen.fxml");
+    }
+
+    @FXML
     private GridPane grid;
 
     @FXML

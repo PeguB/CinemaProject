@@ -27,7 +27,7 @@
                 <Font name="Dubai Bold" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="27.0" layoutY="69.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="80.0" style="-fx-background-color: #111f28;" text="HOME" textFill="#d79e4f">
+        <Button layoutX="27.0" layoutY="69.0" mnemonicParsing="false" onAction="#onHomeAction" prefHeight="56.0" prefWidth="80.0" style="-fx-background-color: #111f28;" text="HOME" textFill="#d79e4f">
             <font>
                 <Font name="Dubai Bold" size="17.0" />
             </font>
@@ -37,7 +37,7 @@
                 <Font name="Dubai Bold" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="10.0" layoutY="346.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #111f28;" text="LOG OUT" textAlignment="RIGHT" textFill="#d79e4f">
+        <Button layoutX="10.0" layoutY="346.0" mnemonicParsing="false" onAction="#onLogOutAction" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: #111f28;" text="LOG OUT" textAlignment="RIGHT" textFill="#d79e4f">
             <font>
                 <Font name="Dubai Bold" size="17.0" />
             </font>
