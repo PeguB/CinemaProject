@@ -17,6 +17,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("LOGIN");
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.show();
         this.stage = stage;
     }
@@ -30,5 +31,6 @@ public class Main extends Application {
     public void switchScene(String fxml) throws IOException{
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stage.getScene().setRoot(pane);
+        stage.sizeToScene();
     }
 }

@@ -4,9 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import org.fis.cinemaregistrationapplication.services.DaysGenerator;
-import org.fis.cinemaregistrationapplication.services.MoviesService;
-import org.fis.cinemaregistrationapplication.services.ReservationService;
+import org.fis.cinemaregistrationapplication.models.Reservation;
+import org.fis.cinemaregistrationapplication.services.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class ClientAddController {
     }
 
     @FXML
-    public void onCheckAction(){
+    protected void onCheckAction(){
         try {
             if(reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), (Integer) seat.getValue(), day.getValue().toString())) {
                 AvailableCheck.setFill(Color.RED);
@@ -65,5 +64,49 @@ public class ClientAddController {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    @FXML
+    protected void onBookAction(){
+        Reservation Rez = new Reservation();
+        Rez.setSeat((Integer) seat.getValue());
+        Rez.setDay(day.getValue().toString());
+        Rez.setDate(hour.getValue().toString());
+        Rez.setUsername_user(SingletonUsername.getUSSERNAME());
+        Rez.setMovieName(movie.getValue().toString());
+        Rez.setConfirmed("Unknown");
+
+        try {
+            if (!reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), (Integer) seat.getValue(), day.getValue().toString())){
+                reservationService.addReservationToDatabase(Rez);
+                AvailableCheck.setFill(Color.ORANGE);
+                AvailableCheck.setText("Seat booked succesfully");
+            } else{
+                AvailableCheck.setFill(Color.ORANGE);
+                AvailableCheck.setText("Please Check your seat availabilit again!");
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    protected void onHomeAction(){
+        SceneSwitcher.switchScene("homePageClient.fxml");
+    }
+
+    @FXML
+    protected void onAddAction(){
+        SceneSwitcher.switchScene("ClientAddReservation.fxml");
+    }
+
+    @FXML
+    protected void onLogOutAction(){
+        SceneSwitcher.switchScene("loginscreen.fxml");
+    }
+
+    @FXML
+    protected void onInfoAction(){
+        SceneSwitcher.switchScene("homePageClient.fxml");
     }
 }
