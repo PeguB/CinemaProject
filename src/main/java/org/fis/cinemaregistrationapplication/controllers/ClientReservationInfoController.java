@@ -1,11 +1,20 @@
 package org.fis.cinemaregistrationapplication.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import org.fis.cinemaregistrationapplication.Main;
+import org.fis.cinemaregistrationapplication.models.Reservation;
+import org.fis.cinemaregistrationapplication.services.ReservationService;
 import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
+import org.fis.cinemaregistrationapplication.services.SingletonUsername;
 
+import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ClientReservationInfoController {
 
@@ -20,6 +29,11 @@ public class ClientReservationInfoController {
     }
 
     @FXML
+    protected void onHomeAction(){
+        SceneSwitcher.switchScene("homePageClient.fxml");
+    }
+
+    @FXML
     private GridPane grid;
 
     @FXML
@@ -29,23 +43,24 @@ public class ClientReservationInfoController {
     public void initialize() {
 
         try{
-            ResultSet rooms = RoomService.getRooms();
+            ResultSet reservations = ReservationService.getAllReservations(SingletonUsername.getUSSERNAME());
             int row = 1;
-            while(rooms.next()) {
-                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("oneRoom.fxml"));
+            while(reservations.next()) {
+                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("oneReservation.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-                Room room = new Room();
-                room.setType(rooms.getString(1));
-                room.setNrPers(rooms.getInt(2));
-                room.setPrice(rooms.getInt(3));
-                room.setImg(rooms.getString(5));
-                OneRoomController oneRoomController = fxmlLoader.getController();
-                oneRoomController.setData(room);
+                Reservation Rez = new Reservation();
+                Rez.setUsername_user(reservations.getString(2));
+                Rez.setDate(reservations.getString(3));
+                Rez.setMovieName(reservations.getString(4));
+                Rez.setConfirmed(reservations.getString(5));
+                Rez.setDay(reservations.getString(6));
+                Rez.setSeat(reservations.getInt(7));
+                OneReservationController oneReservationController = fxmlLoader.getController();
+                oneReservationController.initialize(Rez, row);
                 grid.add(anchorPane, 0, row++); //(child,column,row)
 
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
-
         }catch (SQLException | IOException e) {
             System.out.println(e);
         }

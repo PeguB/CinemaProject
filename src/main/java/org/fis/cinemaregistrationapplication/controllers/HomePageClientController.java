@@ -12,6 +12,6 @@ public class HomePageClientController {
 
     @FXML
     protected void clickOnInfo(){
-        SceneSwitcher.switchScene("OneReservation.fxml");
+        SceneSwitcher.switchScene("ClientReservationInfo.fxml");
     }
 }

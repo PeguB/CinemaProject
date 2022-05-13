@@ -80,7 +80,7 @@ public class ClientAddController {
         Rez.setConfirmed("Unknown");
 
         try {
-            if (!reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), (Integer) seat.getValue(), day.getValue().toString())){
+            if (!reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), Integer.parseInt(seat.getValue().toString()), day.getValue().toString())){
                 reservationService.addReservationToDatabase(Rez);
                 AvailableCheck.setFill(Color.ORANGE);
                 AvailableCheck.setText("Seat booked succesfully");

@@ -24,20 +24,14 @@ public class OneReservationController {
     @FXML
     private Text id;
 
-    public void initialize() {
-        Reservation Rez = new Reservation();
-        Rez.setConfirmed("Unknown");
-        Rez.setDay("Monday");
-        Rez.setDate("10:00");
-        Rez.setSeat(28);
-        Rez.setMovieName("Batman");
+    public void initialize(Reservation Rez, Integer row) {
 
         day.setText(Rez.getDay());
         hour.setText(Rez.getDate());
         seat.setText(Rez.getSeat().toString());
         status.setText(Rez.getConfirmed());
         movie.setText(Rez.getMovieName());
-        id.setText("1");
+        id.setText(row.toString());
     }
 
 }

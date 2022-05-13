@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="391.0" prefWidth="600.0" style="-fx-background-color: #111f28;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.ClientReservationInfoController">
+<AnchorPane prefHeight="391.0" prefWidth="600.0" style="-fx-background-color: #111f28;" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.ClientReservationInfoController">
     <children>
         <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="216.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -57,18 +57,18 @@
                 <Image url="@images/homeIcon.png" />
             </image>
         </ImageView>
-      <ScrollPane layoutX="107.0" layoutY="73.0" prefHeight="310.0" prefWidth="484.0" style="-fx-background: #575757;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <GridPane prefHeight="0.0" prefWidth="31.0">
+    <AnchorPane layoutX="415.0" layoutY="196.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ScrollPane fx:id="scroll" prefHeight="310.0" prefWidth="484.0" style="-fx-background: #575757;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <content>
+                  <GridPane fx:id="grid" prefHeight="0.0" prefWidth="31.0">
                      <columnConstraints>
                         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                   </GridPane>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
