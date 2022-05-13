@@ -65,7 +65,7 @@
       </Text>
       <ImageView fitHeight="126.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <image>
-            <Image url="@dsBuffer.bmp.png" />
+            <Image url="@images/dsBuffer.bmp.png" />
          </image>
       </ImageView>
    </children>

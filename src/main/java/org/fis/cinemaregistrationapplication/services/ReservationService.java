@@ -38,4 +38,11 @@ public class ReservationService {
           return result.next();
 
     }
+
+    public static Reservation getAllReservations(String username){
+        String query = "SELECT * FROM reservation WHERE username_user = ?";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        statement.setString(1, username);
+        ResultSet user_reservations = statement.executeQuery();
+    }
 }
