@@ -61,6 +61,7 @@ public class HelloController {
                 SingletonUsername.setUSSERNAME(usernameField.getText());
             }else{
                 SceneSwitcher.switchScene("homePageClient.fxml");
+                SingletonUsername.setUSSERNAME(usernameField.getText());
             }
 
         }else{
