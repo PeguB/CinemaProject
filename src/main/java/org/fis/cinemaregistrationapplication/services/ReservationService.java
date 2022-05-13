@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class ReservationService {
 
@@ -39,12 +42,54 @@ public class ReservationService {
 
     }
 
-    public static ResultSet getAllReservations(String username) throws SQLException{
+    public static ResultSet getAllReservations(String username) throws SQLException {
         String query = "SELECT * FROM reservation WHERE username_user = ?";
         PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
         statement.setString(1, username);
         ResultSet user_reservations = statement.executeQuery();
 
-        return  user_reservations;
+        return user_reservations;
+    }
+
+    public boolean availableSeatByNumberOfSeats(String name, String hour, String day) throws SQLException {
+        String query = "SELECT Count(seat_reserved) as 'number_seats', movie_name, day, date FROM reservation WHERE movie_name = ? AND date = ? AND day = ? GROUP BY movie_name,day,date ";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        statement.setString(1,name);
+        statement.setString(2,hour);
+        statement.setString(3,day);
+        ResultSet result = statement.executeQuery();
+        while(result.next()){
+            String number_seats = result.getString("number_seats");
+            if(Integer.parseInt(number_seats) == 50){
+                return false;
+            }
+        }
+        return true;
+
+    }
+    public List<String> getReservationsWhitStatusUnknow(){
+        String query = "SELECT * FROM accounts.reservation where comfirmed = 'Unknown'";
+        List<String> list_reservations = new ArrayList<>();
+        try {
+            Statement statement = DBConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            while(result.next()){
+                list_reservations.add(result.getString("id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list_reservations;
+    }
+    public void updateReservationStatus(Integer Id, String staus){
+        String query = "Update reservation Set comfirmed = ? WHERE id = ?";
+        try {
+            PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+            statement.setString(1,staus);
+            statement.setString(2,Id.toString());
+            int result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
