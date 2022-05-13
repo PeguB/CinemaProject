@@ -2,10 +2,7 @@ package org.fis.cinemaregistrationapplication.services;
 
 import org.fis.cinemaregistrationapplication.dbconnection.DBConnection;
 
-import java.sql.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
 public class MoviesService {
@@ -48,5 +45,13 @@ public class MoviesService {
             e.printStackTrace();
         }
         return dictionaryHourMovies.get(MovieName);
+    }
+
+    public ResultSet getAllMovies() throws SQLException{
+        String query = "SELECT * FROM movie";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        ResultSet movies = statement.executeQuery();
+
+        return movies;
     }
 }
