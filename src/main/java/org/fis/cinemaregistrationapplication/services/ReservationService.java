@@ -39,10 +39,12 @@ public class ReservationService {
 
     }
 
-    public static Reservation getAllReservations(String username){
+    public static ResultSet getAllReservations(String username) throws SQLException{
         String query = "SELECT * FROM reservation WHERE username_user = ?";
         PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
         statement.setString(1, username);
         ResultSet user_reservations = statement.executeQuery();
+
+        return  user_reservations;
     }
 }
