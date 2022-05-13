@@ -5,20 +5,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="100.0" prefWidth="490.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.OneMovie">
+<AnchorPane prefHeight="100.0" prefWidth="490.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.OnMovieController">
    <children>
       <Text fill="WHITE" layoutX="23.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MOVIE:">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="95.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="114.38629150390625">
+      <Text fx:id="movie" fill="WHITE" layoutX="96.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="370.3862762451172">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Text>
-      <Button layoutX="259.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #d79e4f;" text="Find out more about the movie..." textFill="WHITE">
+      <Button layoutX="270.0" layoutY="59.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #d79e4f;" text="Find out more about the movie..." textFill="WHITE">
          <font>
             <Font name="Arial Black" size="10.0" />
          </font>

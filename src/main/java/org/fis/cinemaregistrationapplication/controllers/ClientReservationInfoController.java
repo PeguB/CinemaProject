@@ -51,7 +51,7 @@ public class ClientReservationInfoController {
             ResultSet reservations = ReservationService.getAllReservations(SingletonUsername.getUSSERNAME());
             int row = 1;
             while(reservations.next()) {
-                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("oneReservation.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("OneReservation.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 Reservation Rez = new Reservation();
                 Rez.setUsername_user(reservations.getString(2));

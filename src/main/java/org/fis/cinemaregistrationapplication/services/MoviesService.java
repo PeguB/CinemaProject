@@ -47,7 +47,7 @@ public class MoviesService {
         return dictionaryHourMovies.get(MovieName);
     }
 
-    public ResultSet getAllMovies() throws SQLException{
+    public static ResultSet getAllMovies() throws SQLException{
         String query = "SELECT * FROM movie";
         PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
         ResultSet movies = statement.executeQuery();

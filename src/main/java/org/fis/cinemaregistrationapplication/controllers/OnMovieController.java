@@ -3,6 +3,7 @@ package org.fis.cinemaregistrationapplication.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import org.fis.cinemaregistrationapplication.dbconnection.DBConnection;
+import org.fis.cinemaregistrationapplication.models.Movie;
 import org.fis.cinemaregistrationapplication.models.Reservation;
 
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ public class OnMovieController {
     @FXML
     private Text movie;
 
-    public void initialize() {
-
+    public void initialize(Movie film) {
+        movie.setText(film.getName());
     }
 }
