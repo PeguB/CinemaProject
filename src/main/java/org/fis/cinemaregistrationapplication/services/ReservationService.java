@@ -50,7 +50,7 @@ public class ReservationService {
         ResultSet result = statement.executeQuery();
         while(result.next()){
             String number_seats = result.getString("number_seats");
-            if(Integer.parseInt(number_seats) == 15){
+            if(Integer.parseInt(number_seats) == 50){
                 return false;
             }
         }

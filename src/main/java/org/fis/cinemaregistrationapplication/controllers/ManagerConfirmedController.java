@@ -8,6 +8,7 @@ import org.fis.cinemaregistrationapplication.models.Reservation;
 import org.fis.cinemaregistrationapplication.services.DaysGenerator;
 import org.fis.cinemaregistrationapplication.services.ReservationService;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ManagerConfirmedController {
@@ -24,21 +25,31 @@ public class ManagerConfirmedController {
 
     @FXML
     public void initialize() {
+        List<String> listReservationUnknown = reservationService.getReservationsWhitStatusUnknow();
+        if(listReservationUnknown.isEmpty()){
+            text.setText("No reservations to check");
+        }else{
+            id.getItems().addAll(listReservationUnknown);
+            System.out.println(reservationService.getReservationsWhitStatusUnknow());
+            id.setValue(reservationService.getReservationsWhitStatusUnknow().get(0));
+            status.getItems().addAll("Confirmed", "Reject");
+            text.setText("");
+        }
 
-        id.getItems().addAll(reservationService.getReservationsWhitStatusUnknow());
-        System.out.println(reservationService.getReservationsWhitStatusUnknow());
-        id.setValue(reservationService.getReservationsWhitStatusUnknow().get(0));
-        status.getItems().addAll("Confirmed", "Reject");
-        text.setText("");
     }
 
     @FXML
     public void sendSubmitConfirm() {
-        Integer Id = Integer.parseInt(id.getValue().toString());
-        reservationService.updateReservationStatus(Id, status.getValue().toString());
-        text.setText("Update the status of reservation whit id: " + id.getValue().toString());
-        id.getItems().clear();
-        id.getItems().addAll(reservationService.getReservationsWhitStatusUnknow());
+        try {
+            Integer Id = Integer.parseInt(id.getValue().toString());
+            reservationService.updateReservationStatus(Id, status.getValue().toString());
+            text.setText("Update the status of reservation whit id: " + id.getValue().toString() +" "+status.getValue().toString());
+        } catch (RuntimeException e) {
+            text.setText("Invalid id");
+        } finally {
+            id.getItems().clear();
+            id.getItems().addAll(reservationService.getReservationsWhitStatusUnknow());
+        }
 
 
     }

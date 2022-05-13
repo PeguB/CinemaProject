@@ -62,7 +62,7 @@ public class ManagerAddReservationPage {
     @FXML
     public void onSubmitButton() {
         if (date.getValue().toString() != null && movieName.getValue().toString() != null && seat.getText().isEmpty() == false
-                && CheckNumber.isNumeric(seat.getText()) && Integer.parseInt(seat.getText()) < 15) {
+                && CheckNumber.isNumeric(seat.getText()) && Integer.parseInt(seat.getText()) < 51 && Integer.parseInt(seat.getText()) > 0) {
             try {
                 if (reservationService.availableSeatByNumberOfSeats(movieName.getValue().toString(), date.getValue().toString(), day.getValue().toString()))
                 {
