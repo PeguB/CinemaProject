@@ -3,6 +3,8 @@ package org.fis.cinemaregistrationapplication.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import org.fis.cinemaregistrationapplication.models.Reservation;
+import org.fis.cinemaregistrationapplication.services.MoviesService;
+import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
 
 public class OneReservationController {
 
@@ -32,6 +34,16 @@ public class OneReservationController {
         status.setText(Rez.getConfirmed());
         movie.setText(Rez.getMovieName());
         id.setText(row.toString());
+    }
+
+    @FXML
+    public void onButtonAction(){
+        try {
+            MoviesService.setActual(MoviesService.getMovieByName(movie.getText()));
+            SceneSwitcher.switchScene("MovieInformation.fxml");
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 }

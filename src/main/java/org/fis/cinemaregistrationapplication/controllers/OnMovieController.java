@@ -5,6 +5,8 @@ import javafx.scene.text.Text;
 import org.fis.cinemaregistrationapplication.dbconnection.DBConnection;
 import org.fis.cinemaregistrationapplication.models.Movie;
 import org.fis.cinemaregistrationapplication.models.Reservation;
+import org.fis.cinemaregistrationapplication.services.MoviesService;
+import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +20,11 @@ public class OnMovieController {
     }
 
     public void onButtonAction(){
-
+        try {
+            MoviesService.setActual(MoviesService.getMovieByName(movie.getText()));
+            SceneSwitcher.switchScene("MovieInformation.fxml");
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
