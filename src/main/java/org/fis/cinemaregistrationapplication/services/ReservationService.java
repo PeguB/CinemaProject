@@ -97,4 +97,21 @@ public class ReservationService {
         }
         return list_reservations;
     }
+
+    public void updateReservation(Integer Id, String hour, String movie_name, String day, Integer seat) {
+        String query = "Update reservation Set date = ?, movie_name = ?, day = ?, seat = ? WHERE id = ?";
+        try {
+            PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+            statement.setString(1,hour);
+            statement.setString(2,movie_name);
+            statement.setString(3,day);
+            statement.setString(3,seat.toString());
+            statement.setString(5,Id.toString());
+            int result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
