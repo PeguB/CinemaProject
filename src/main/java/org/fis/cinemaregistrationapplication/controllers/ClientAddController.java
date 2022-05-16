@@ -40,13 +40,16 @@ public class ClientAddController {
             Seats.add(i);
 
         seat.getItems().addAll(Seats);
+        seat.setValue("1");
         day.getItems().addAll(DaysGenerator.getDays());
+        day.setValue("Monday");
 
         Set<String> Movies = moviesService.getMoviesName();
         if(!Movies.isEmpty()){
             movie.getItems().addAll(Movies);
             movie.setValue(Movies.iterator().next());
             hour.getItems().addAll(moviesService.getStartDateByMovieName(movie.getValue().toString()));
+            hour.setValue(moviesService.getStartDateByMovieName(movie.getValue().toString()).iterator().next());
         }
 
     }
@@ -77,7 +80,7 @@ public class ClientAddController {
         Rez.setConfirmed("Unknown");
 
         try {
-            if (!reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), (Integer) seat.getValue(), day.getValue().toString())){
+            if (!reservationService.seatOcupated(movie.getValue().toString(), hour.getValue().toString(), Integer.parseInt(seat.getValue().toString()), day.getValue().toString())){
                 reservationService.addReservationToDatabase(Rez);
                 AvailableCheck.setFill(Color.ORANGE);
                 AvailableCheck.setText("Seat booked succesfully");
@@ -106,7 +109,7 @@ public class ClientAddController {
     }
 
     @FXML
-    protected void onInfoAction(){
-        SceneSwitcher.switchScene("homePageClient.fxml");
+    protected void clickOnInfo(){
+        SceneSwitcher.switchScene("ClientReservationInfo.fxml");
     }
 }

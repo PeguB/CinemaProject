@@ -10,7 +10,7 @@
       <AnchorPane layoutX="109.0" layoutY="49.0" prefHeight="354.0" prefWidth="490.0" style="-fx-background-color: #575757;" />
       <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="216.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@homeIcon.png" />
+            <Image url="@images/homeIcon.png" />
          </image>
       </ImageView>
       <Text fill="#d79e4f" layoutX="258.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD" wrappingWidth="117.336669921875">
@@ -28,7 +28,7 @@
             <Font name="Dubai Bold" size="17.0" />
          </font>
       </Button>
-      <Button ellipsisString="" layoutX="14.0" layoutY="220.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="88.0" style="-fx-background-color: #111f28;" text="INFO" textFill="#d79e4f" wrapText="true">
+      <Button ellipsisString="" layoutX="14.0" layoutY="220.0" mnemonicParsing="false" onAction="#clickOnInfo" prefHeight="62.0" prefWidth="88.0" style="-fx-background-color: #111f28;" text="INFO" textFill="#d79e4f" wrapText="true">
          <font>
             <Font name="Dubai Bold" size="17.0" />
          </font>
@@ -40,17 +40,17 @@
       </Button>
       <ImageView fitHeight="16.0" fitWidth="15.0" layoutX="11.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@orange-plus-hi.png" />
+            <Image url="@images/orange-plus-hi.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="11.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img_406698.png" />
+            <Image url="@images/img_406698.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="3.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@homeIcon.png" />
+            <Image url="@images/homeIcon.png" />
          </image>
       </ImageView>
    </children>

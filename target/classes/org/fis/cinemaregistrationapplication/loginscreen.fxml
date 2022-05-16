@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="271.0" prefWidth="425.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.HelloController">
+<GridPane prefHeight="271.0" prefWidth="425.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.HelloController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0000244140625" minWidth="10.0" prefWidth="106.0000244140625" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.599951171875" minWidth="10.0" prefWidth="106.799951171875" />
@@ -65,7 +65,7 @@
       </Text>
       <ImageView fitHeight="126.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <image>
-            <Image url="@dsBuffer.bmp.png" />
+            <Image url="@images/dsBuffer.bmp.png" />
          </image>
       </ImageView>
    </children>

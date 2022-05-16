@@ -6,7 +6,12 @@ import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
 public class HomePageClientController {
 
     @FXML
-    public void clickOnAdd(){
+    protected void clickOnAdd(){
         SceneSwitcher.switchScene("ClientAddReservation.fxml");
+    }
+
+    @FXML
+    protected void clickOnInfo(){
+        SceneSwitcher.switchScene("ClientReservationInfo.fxml");
     }
 }

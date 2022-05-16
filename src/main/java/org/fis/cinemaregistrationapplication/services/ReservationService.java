@@ -41,6 +41,16 @@ public class ReservationService {
           return result.next();
 
     }
+
+    public static ResultSet getAllReservations(String username) throws SQLException {
+        String query = "SELECT * FROM reservation WHERE username_user = ?";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        statement.setString(1, username);
+        ResultSet user_reservations = statement.executeQuery();
+
+        return user_reservations;
+    }
+
     public boolean availableSeatByNumberOfSeats(String name, String hour, String day) throws SQLException {
         String query = "SELECT Count(seat_reserved) as 'number_seats', movie_name, day, date FROM reservation WHERE movie_name = ? AND date = ? AND day = ? GROUP BY movie_name,day,date ";
         PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
@@ -81,7 +91,6 @@ public class ReservationService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
     public List<String> getReservationsIdWhitStatusComfirmed(){
         String query = "SELECT * FROM accounts.reservation where comfirmed = 'Confirmed'";
