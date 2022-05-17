@@ -15,4 +15,7 @@ public class ManagerController {
     public void clickOnConfirm(){
         SceneSwitcher.switchScene("ManagerConfirmPage.fxml");
     }
+
+    @FXML
+    public void clickOnEdit(){SceneSwitcher.switchScene("editReservation.fxml");}
 }

@@ -31,7 +31,7 @@ public class ReservationService {
         }
     }
     public boolean seatOcupated(String movie_name, String hour, Integer seat, String day) throws SQLException {
-            String query = "SELECT * FROM reservation WHERE movie_name = ? AND date = ? AND seat_reserved = ? AND day = ?";
+            String query = "SELECT * FROM reservation WHERE movie_name = ? AND date = ? AND seat_reserved = ? AND day = ? AND (comfirmed = 'Unknown' OR comfirmed = 'Confirmed') ";
             PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
             statement.setString(1,movie_name);
             statement.setString(2,hour);
@@ -92,4 +92,35 @@ public class ReservationService {
             e.printStackTrace();
         }
     }
+    public List<String> getReservationsIdWhitStatusComfirmed(){
+        String query = "SELECT * FROM accounts.reservation where comfirmed = 'Confirmed'";
+        List<String> list_reservations = new ArrayList<>();
+        try {
+            Statement statement = DBConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            while(result.next()){
+                list_reservations.add(result.getString("id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list_reservations;
+    }
+
+    public void updateReservation(Integer Id, String hour, String movie_name, String day, Integer seat) {
+        String query = "Update reservation Set date = ?, movie_name = ?, day = ?, seat_reserved = ? WHERE id = ?";
+        try {
+            PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+            statement.setString(1,hour);
+            statement.setString(2,movie_name);
+            statement.setString(3,day);
+            statement.setString(4,seat.toString());
+            statement.setString(5,Id.toString());
+            int result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
