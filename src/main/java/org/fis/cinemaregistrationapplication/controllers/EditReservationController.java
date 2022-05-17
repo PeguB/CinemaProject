@@ -37,6 +37,11 @@ public class EditReservationController {
     private Label message;
 
     @FXML
+    public void goHome(){
+        SceneSwitcher.switchScene("HomePageManager.fxml");
+    }
+
+    @FXML
     public void initialize(){
         List<String> listReservationComfirmed = reservationService.getReservationsIdWhitStatusComfirmed();
         if(listReservationComfirmed.isEmpty()){

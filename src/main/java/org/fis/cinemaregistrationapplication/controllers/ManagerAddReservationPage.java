@@ -34,6 +34,11 @@ public class ManagerAddReservationPage {
     private ComboBox day;
 
     @FXML
+    public void goHome(){
+        SceneSwitcher.switchScene("HomePageManager.fxml");
+    }
+
+    @FXML
     public void initialize() {
         movieName.getItems().addAll(moviesService.getMoviesName());
         String predefineMovieNameValue = moviesService.getMoviesName().stream().iterator().next();

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="391.0" prefWidth="600.0" style="-fx-background-color: #111f28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.HistoryController">
+    <children>
+        <Text fill="#d79e4f" layoutX="244.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History" wrappingWidth="126.336669921875">
+            <font>
+                <Font name="Berlin Sans FB Bold" size="27.0" />
+            </font>
+        </Text>
+        <AnchorPane layoutX="415.0" layoutY="196.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <ScrollPane fx:id="scroll" prefHeight="310.0" prefWidth="484.0" style="-fx-background: #575757;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <content>
+                        <GridPane fx:id="grid" prefHeight="0.0" prefWidth="31.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                        </GridPane>
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+      <Button layoutX="12.0" layoutY="102.0" mnemonicParsing="false" onAction="#goHome" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #d79e4f;" text="Manager Tab" />
+    </children>
+</AnchorPane>
