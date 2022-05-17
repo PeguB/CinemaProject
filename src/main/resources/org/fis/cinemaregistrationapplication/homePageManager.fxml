@@ -42,5 +42,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <Button fx:id="editButton1" alignment="CENTER" layoutX="10.0" layoutY="124.0" mnemonicParsing="false" onAction="#clickOnHistory" prefHeight="27.0" prefWidth="93.0" style="-fx-background-color: #F6B052;" text="history" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </GridPane>

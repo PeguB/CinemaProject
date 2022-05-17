@@ -18,4 +18,7 @@ public class ManagerController {
 
     @FXML
     public void clickOnEdit(){SceneSwitcher.switchScene("editReservation.fxml");}
+
+    @FXML
+    public void clickOnHistory(){SceneSwitcher.switchScene("HistoryPageManager.fxml");}
 }
