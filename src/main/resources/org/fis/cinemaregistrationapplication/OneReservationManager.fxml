@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="100.0" prefWidth="484.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.OneReservationController">
+    <children>
+        <Text fill="WHITE" layoutX="8.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="94.93677520751953">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Text>
+        <Text fx:id="id" fill="WHITE" layoutX="112.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="28.536750793457145">
+            <font>
+                <Font name="Arial Black" size="10.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="8.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" wrappingWidth="36.53675079345703">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="8.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour:" wrappingWidth="44.53675079345703">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="158.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seat:" wrappingWidth="44.53675079345703">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="158.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" wrappingWidth="60.53681182861328">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Text>
+        <Text fx:id="day" fill="WHITE" layoutX="55.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="78.93678283691406">
+            <font>
+                <Font name="Arial Black" size="10.0" />
+            </font>
+        </Text>
+        <Text fx:id="hour" fill="WHITE" layoutX="67.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="44.53675079345703">
+            <font>
+                <Font name="Arial Black" size="10.0" />
+            </font>
+        </Text>
+        <Text fx:id="seat" fill="WHITE" layoutX="216.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="36.53675079345703">
+            <font>
+                <Font name="Arial Black" size="10.0" />
+            </font>
+        </Text>
+        <Text fx:id="status" fill="WHITE" layoutX="219.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="78.93678283691406">
+            <font>
+                <Font name="Arial Black" size="10.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="281.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie:" wrappingWidth="60.53681182861328">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Text>
+        <Text fx:id="movie" fill="WHITE" layoutX="342.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="78.93678283691406">
+            <font>
+                <Font name="Arial Black" size="10.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
