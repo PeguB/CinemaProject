@@ -32,6 +32,12 @@ public class ClientAddController {
     @FXML
     private Text AvailableCheck;
 
+
+    @FXML
+    public void goHome(){
+        SceneSwitcher.switchScene("HomePageManager.fxml");
+    }
+
     @FXML
     public void initialize(){
 

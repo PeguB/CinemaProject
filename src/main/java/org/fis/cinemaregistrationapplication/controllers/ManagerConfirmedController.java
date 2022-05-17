@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import org.fis.cinemaregistrationapplication.models.Reservation;
 import org.fis.cinemaregistrationapplication.services.DaysGenerator;
 import org.fis.cinemaregistrationapplication.services.ReservationService;
+import org.fis.cinemaregistrationapplication.services.SceneSwitcher;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +37,11 @@ public class ManagerConfirmedController {
             text.setText("");
         }
 
+    }
+
+    @FXML
+    public void goHome(){
+        SceneSwitcher.switchScene("HomePageManager.fxml");
     }
 
     @FXML

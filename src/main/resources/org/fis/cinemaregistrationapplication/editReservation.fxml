@@ -39,11 +39,12 @@
          </font>
       </Label>
       <ComboBox fx:id="seat" layoutX="155.0" layoutY="209.0" prefWidth="150.0" />
-      <Button fx:id="saveButton" layoutX="348.0" layoutY="250.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #F6B052;" text="Save" />
+      <Button fx:id="saveButton" layoutX="305.0" layoutY="254.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #F6B052;" text="Save" />
       <Label fx:id="message" layoutX="56.0" layoutY="255.0" prefHeight="18.0" prefWidth="176.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <Button fx:id="saveButton1" layoutX="423.0" layoutY="254.0" mnemonicParsing="false" onAction="#goHome" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #F6B052;" text="Manager Tab" />
    </children>
 </AnchorPane>

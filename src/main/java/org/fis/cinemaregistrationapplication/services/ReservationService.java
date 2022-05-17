@@ -51,6 +51,14 @@ public class ReservationService {
         return user_reservations;
     }
 
+    public static ResultSet getAllReservations() throws SQLException {
+        String query = "SELECT * FROM reservation";
+        PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
+        ResultSet reservations = statement.executeQuery();
+
+        return reservations;
+    }
+
     public boolean availableSeatByNumberOfSeats(String name, String hour, String day) throws SQLException {
         String query = "SELECT Count(seat_reserved) as 'number_seats', movie_name, day, date FROM reservation WHERE movie_name = ? AND date = ? AND day = ? GROUP BY movie_name,day,date ";
         PreparedStatement statement = DBConnection.getConnection().prepareStatement(query);
