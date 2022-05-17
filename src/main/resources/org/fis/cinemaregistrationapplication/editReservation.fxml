@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="571.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.EditReservationController">
+   <children>
+      <Label layoutX="129.0" layoutY="14.0" prefHeight="18.0" prefWidth="277.0" text="Edit Reservation Page" textFill="#e8ef23">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ComboBox fx:id="id" layoutX="155.0" layoutY="60.0" prefWidth="150.0" />
+      <Label layoutX="15.0" layoutY="64.0" prefHeight="18.0" prefWidth="107.0" text="ID">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <ComboBox fx:id="movieName" layoutX="155.0" layoutY="98.0" onAction="#setHoursBaseByMovieName" prefWidth="150.0" />
+      <Label layoutX="15.0" layoutY="98.0" prefHeight="18.0" prefWidth="107.0" text="Movie Name">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="138.0" prefHeight="18.0" prefWidth="107.0" text="Hour">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="hour" layoutX="155.0" layoutY="138.0" prefWidth="150.0" />
+      <Label layoutX="15.0" layoutY="170.0" prefHeight="18.0" prefWidth="107.0" text="Day">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="day" layoutX="155.0" layoutY="170.0" prefWidth="150.0" />
+      <Label layoutX="15.0" layoutY="209.0" prefHeight="18.0" prefWidth="107.0" text="Seat">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="seat" layoutX="155.0" layoutY="209.0" prefWidth="150.0" />
+      <Button fx:id="saveButton" layoutX="348.0" layoutY="250.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #F6B052;" text="Save" />
+      <Label fx:id="message" layoutX="56.0" layoutY="255.0" prefHeight="18.0" prefWidth="176.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
