@@ -29,7 +29,7 @@ public class ManagerDeleteController {
         }else{
             id.getItems().addAll(listReservationUnknown);
             System.out.println(reservationService.getIdReservations());
-            id.setValue(reservationService.getIdReservations());
+            id.setValue(reservationService.getIdReservations().get(0));
             message.setText("");
         }
     }
@@ -44,7 +44,7 @@ public class ManagerDeleteController {
         try {
             Integer Id = Integer.parseInt(id.getValue().toString());
             reservationService.deleteReservation(Id);
-            message.setText("Update the status of reservation whit id: " + id.getValue().toString());
+            message.setText("Delete reservation whit id: " + id.getValue().toString());
         } catch (RuntimeException e) {
             message.setText("Invalid id");
         } finally {
