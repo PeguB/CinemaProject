@@ -12,22 +12,6 @@ public class Reservation {
     private String day;
     private Integer seat;
 
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-    public Integer getSeat() {
-        return seat;
-    }
-
-    public void setSeat(Integer seat) {
-        this.seat = seat;
-    }
-
     public Reservation() {
     }
 
@@ -42,6 +26,22 @@ public class Reservation {
         this.movieName = movieName;
         this.date = date;
         this.confirmed = comfirmed;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public Integer getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Integer seat) {
+        this.seat = seat;
     }
 
     public Integer getId() {
