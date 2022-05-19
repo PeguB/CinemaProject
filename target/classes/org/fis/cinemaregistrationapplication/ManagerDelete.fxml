@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="264.0" prefWidth="518.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.cinemaregistrationapplication.controllers.ManagerDeleteController">
+   <children>
+      <ComboBox fx:id="id" layoutX="184.0" layoutY="68.0" prefWidth="150.0" />
+      <Button fx:id="deleteButton" layoutX="349.0" layoutY="191.0" mnemonicParsing="false" onAction="#clickOnDelete" prefHeight="26.0" prefWidth="113.0" style="-fx-background-color: #d79e4f;" text="Delete" />
+      <Label layoutX="119.0" layoutY="21.0" prefHeight="18.0" prefWidth="279.0" text="Delete Reservation Page" textFill="#e8ef23">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="72.0" prefHeight="18.0" prefWidth="71.0" text="ID">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="80.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #d79e4f;" text="Manager Tab" />
+      <Label fx:id="message" layoutX="30.0" layoutY="124.0" prefHeight="18.0" prefWidth="365.0" />
+   </children>
+</AnchorPane>
