@@ -1,0 +1,10 @@
+models\UserTests.class
+services\ReservartionTests.class
+controller\ManagaerAddTests.class
+services\UserLoginServiceTests.class
+database\TestDBConnection.class
+services\MovieServiceTests.class
+services\CheckNumberTests.class
+models\MovieTests.class
+models\ReservationTest.class
+services\DaysGeneratorTests.class

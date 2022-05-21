@@ -1,0 +1,4 @@
+--patch-module
+org.fis.cinemaregistrationapplication=_
+--add-reads
+org.fis.cinemaregistrationapplication=ALL-UNNAMED
